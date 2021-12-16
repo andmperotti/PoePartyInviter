@@ -1,6 +1,7 @@
 import keyboard
 import time
 import pygetwindow as gw
+import random
 
 NamesFile = 'names.txt'
 daBois = []
@@ -11,16 +12,13 @@ with open(NamesFile, encoding = 'utf-8') as f:
         daBois.append(line.rstrip())
         
 def inviter():
-    time.sleep(0.1)
     poeWindow.activate()
-    time.sleep(0.1)
     keyboard.press_and_release('escape')
     keyboard.press_and_release('space')
     for person in daBois:
-        time.sleep(0.1)
+        time.sleep(random.uniform(.02,.09))
         keyboard.press_and_release('enter')
         keyboard.write(f"/invite {person}")
         keyboard.press_and_release('enter')
-        time.sleep(0.1)
 
 inviter()
